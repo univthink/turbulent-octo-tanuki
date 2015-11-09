@@ -11,6 +11,9 @@ body {
 h3.post-subtitle {
     font-weight: normal;
 }
+button.navbar-toggle {
+    display: none !important;
+}
 div.header-banner h2 {
     text-align: center;
     margin-top: 10vh;

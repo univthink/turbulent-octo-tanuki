@@ -16,3 +16,6 @@ h3.post-subtitle {
     font-weight: normal;
 }
 body{webkit-tap-highlight-color:#0085a1;}
+button.navbar-toggle {
+    display: none !important;
+}
