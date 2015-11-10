@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    render partial: "post/new", layout: "application"
+    render partial: "post/post", layout: "application"
     @post.author_id = @post.author_id + 1
     @post.save
   end
