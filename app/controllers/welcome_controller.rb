@@ -1,19 +1,19 @@
 class WelcomeController < ApplicationController
   def index
     @posts = Post.all
-    render template: "layouts/index.html.erb"
+    render partial: "post/all", layout: "application"
   end
 
   def about
-    render template: "layouts/about.html.erb"
+    render partial: "post/about", layout: "application"
   end
 
   def contact
-    render template: "layouts/contact.html.erb"
+    render partial: "post/contact", layout: "application"
   end
 
   def post
-    render template: "layouts/post.html.erb"
+    render partial: "post/post", layout: "application"
   end
 
   def application
@@ -22,19 +22,19 @@ class WelcomeController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    render template: "post/post"
+    rrender partial: "post/post", layout: "application"
     @post.save
   end
 
   def new
     @post = Post.new
-    render template: "post/new"
+    render partial: "post/new", layout: "application"
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to home_path
+      redirect_to root_path
     else
       render :new
     end
@@ -42,7 +42,7 @@ class WelcomeController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    render template: "post/new"
+    render partial: "post/new", layout: "application"
     @post.save
   end
 
@@ -51,20 +51,25 @@ class WelcomeController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
-      render template: "post/new"
-    end
+      render partial: "post/new", layout: "application"
+     end
     @post.save
+  end
+
+  def error
+    render partial: "post/error", layout: "error"
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     Post.all
-    redirect_to home_path
+    redirect_to root_path
     @post.save
   end
+
   def all
     @posts = Post.all
-    render template: "post/all"
+    render partial: "post/all", layout: "application"
   end
 end

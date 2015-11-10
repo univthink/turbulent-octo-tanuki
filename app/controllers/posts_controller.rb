@@ -3,12 +3,12 @@ class PostsController < ApplicationController
   # For APIs, you may want to use :null_session instead.
   def index
     @post = Post.all
-    render template: "post/post"
+    render partial: "post/all", layout: "application"
   end
 
   def show
     @post = Post.find(params[:id])
-    render template: "post/post"
+    render partial: "post/new", layout: "application"
     @post.author_id = @post.author_id + 1
     @post.save
   end
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new
     @post.author_id = 1
-    render template: "post/new"
+    render partial: "post/new", layout: "application"
   end
 
   def create
@@ -27,9 +27,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.author_id = 1
     @post.save
-    render template: "post/all"
+    render partial: "post/all", layout: "application"
   else
-    redirect_to error_path
+    render partial: "post/error", layout: "error"
   end
   end
 
@@ -38,10 +38,10 @@ class PostsController < ApplicationController
     @url = request.original_url
     @post = Post.find(params[:id])
     if @url.split('/')[-1] == "edit?fname1=BroccoliCasserole"
-    render template: "post/new"
+    render partial: "post/new", layout: "application"
     @post.save
     else
-    redirect_to error_path
+      render partial: "post/error", layout: "error"
   end
   end
 
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
-      render template: "post/new"
+      render partial: "post/new", layout: "application"
     end
     @post.save
   end
@@ -61,15 +61,15 @@ class PostsController < ApplicationController
     if @url1.split('/')[-1] == "delete?fname=BroccoliCasserole"
     @post.destroy
     Post.all
-    redirect_to home_path
+    redirect_to root_path
     @post.save
   else
-    redirect_to error_path
+    render partial: "post/error", layout: "error"
   end
   end
   def all
     @posts = @posts.sort_by { |post| post.author_id.size }.reverse
-    render template: "post/all"
+    render partial: "post/all", layout: "application"
   end
 
 end
