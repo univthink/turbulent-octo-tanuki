@@ -61,20 +61,7 @@
                     <p class="post-meta">This post has been viewed <a href="#"><%= p.author_id %></a> times.</p>
 
               </div>
-              <% $secret_url = new_post_path + "/#{(p.id.to_s)}" + "/delete" %>
-              <% $secret_url1 = new_post_path + "/#{(p.id.to_s)}" + "/edit" %>
-          <h6><form name="myForm" onsubmit="return validateForm()" action="<%= $secret_url %>" method="get">
-Password: <input type="password" name="fname">
-<input type="submit" value="DELETE">
-</form></h6>
-
-<h6><form name="myForm1" onsubmit="return validateForm1()" action="<%= $secret_url1 %>" method="get">
-
-Password: <input type="password" name="fname1">
-<input type="submit" value="EDIT">
-</form></h6>
-          <% end %>
-                <hr>
+<% end %>
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
