@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   get 'posts/new/(:id)/delete' => 'posts#destroy', as: "delete"
 
+  get 'posts/(:id)' => 'posts#show'
 end
