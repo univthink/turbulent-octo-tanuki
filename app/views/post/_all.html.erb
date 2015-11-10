@@ -46,7 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<% @posts = @posts.sort_by { |post| post.author_id }.reverse %>
+<% @posts = @posts.sort_by { |post| post.author_id } %>
               <% @posts.each do |p| %>
 
 
