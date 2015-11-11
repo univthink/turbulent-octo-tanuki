@@ -67,6 +67,9 @@ hr.small {
   letter-spacing: 1px;
 }
 @media only screen and (min-width: 768px) {
+  input#btn-click {
+      display: none !important;
+  }
   .navbar-custom {
     background: transparent;
     border-bottom: 1px solid transparent;
@@ -157,6 +160,9 @@ hr.small {
   .intro-header .page-heading {
     padding: 150px 0;
   }
+  input#btn-click {
+      display: none !important;
+  }
 }
 .intro-header .site-heading,
 .intro-header .page-heading {
@@ -180,6 +186,9 @@ hr.small {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
     font-size: 80px;
+  }
+  input#btn-click {
+      display: none !important;
   }
 }
 .intro-header .post-heading h1 {

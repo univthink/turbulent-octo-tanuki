@@ -7,6 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script language="JavaScript">
+        function setVisibility(id, visibility)
+        {
+        document.getElementById(id).style.display = visibility;
+        }
+        function setVisibility2(id, visibility)
+        {
+        document.getElementById(id).style.display = visibility;
+        }
+    </script>
     <script>
     function validateForm() {
       if (document.myForm.fname.value != null)
@@ -65,7 +75,8 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <input type=image name=type src="<%= asset_path 'menu.png' %>"; style="float: right; padding:5px; width: 50px; height: 50px;" id="btn-click" onclick="setVisibility('bs-example-navbar-collapse-1', 'inline'); setVisibility('btn2-click', 'inline'); setVisibility('btn-click', 'none');">
+                <input type=image name=type src="<%= asset_path 'menu2.png' %>"; style="display: none; float: right; padding:5px; width: 50px; height: 50px;" id="btn2-click" onclick="setVisibility('bs-example-navbar-collapse-1', 'none'); setVisibility('btn-click', 'inline'); setVisibility('btn2-click', 'none');">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
