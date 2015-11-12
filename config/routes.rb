@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  resources :users, only: [:new, :create]
+
+  resources :user_sessions, only: [:create, :destroy]
+
+  get '/sign_out', to: 'user_sessions#destroy', as: :sign_out
+  get '/sign_in', to: 'user_sessions#new', as: :sign_in
+
 
   resources :posts
 
@@ -18,6 +27,4 @@ Rails.application.routes.draw do
   get 'posts/new/(:id)/delete' => 'posts#destroy', as: "delete"
 
   get 'posts/(:id)' => 'posts#show'
-
-  get 'posts/new/(:id)/edit' => 'posts#edit'
 end

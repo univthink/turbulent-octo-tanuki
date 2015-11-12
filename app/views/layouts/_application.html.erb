@@ -2,18 +2,13 @@
 <html lang="en">
 
 <head>
-  <style>@media only screen and (min-width: 768px) {
-    input#btn-click {
-        display: none !important;
-    }
+<style>@media only screen and (min-width: 768px) {
+  input#btn-click {
+      display: none !important;
+  }
 }
 </style>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <script language="JavaScript">
+<script language="JavaScript">
         function setVisibility(id, visibility)
         {
         document.getElementById(id).style.display = visibility;
@@ -23,6 +18,11 @@
         document.getElementById(id).style.display = visibility;
         }
     </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <script>
     function validateForm() {
       if (document.myForm.fname.value != null)
@@ -81,14 +81,13 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-                <input type=image name=type src="<%= asset_path 'menu.png' %>"; style="float: right; padding:5px; width: 50px; height: 50px;" id="btn-click" onclick="setVisibility('bs-example-navbar-collapse-1', 'inline'); setVisibility('btn2-click', 'inline'); setVisibility('btn-click', 'none');">
-                <input type=image name=type src="<%= asset_path 'menu2.png' %>"; style="display: none; float: right; padding:5px; width: 50px; height: 50px;" id="btn2-click" onclick="setVisibility('bs-example-navbar-collapse-1', 'none'); setVisibility('btn-click', 'inline'); setVisibility('btn2-click', 'none');">
-                    <span class="sr-only">Toggle navigation</span>
+              <input type=image name=type src="<%= asset_path 'menu.png' %>"; style="float: right; padding:5px; width: 50px; height: 50px;" id="btn-click" onclick="setVisibility('bs-example-navbar-collapse-1', 'inline'); setVisibility('btn2-click', 'inline'); setVisibility('btn-click', 'none');">
+                              <input type=image name=type src="<%= asset_path 'menu2.png' %>"; style="display: none; float: right; padding:5px; width: 50px; height: 50px;" id="btn2-click" onclick="setVisibility('bs-example-navbar-collapse-1', 'none'); setVisibility('btn-click', 'inline'); setVisibility('btn2-click', 'none');">                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://www.UniversallyThinking.com/">Main Site</a><a class="navbar-brand" href="http://univthink.com/">Think Tank</a>
+                <a class="navbar-brand" href="http://www.UniversallyThinking.com/">Main Site</a><a class="navbar-brand" href="http://univthink.com/">Think Tank</a><% if !current_user_session %><a class="navbar-brand" href="<%= sign_in_path%>">Login</a><% else %><a class="navbar-brand" href="<%= sign_out_path%>">Logout</a><% end %>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

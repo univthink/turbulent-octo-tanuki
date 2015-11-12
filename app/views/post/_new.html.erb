@@ -34,10 +34,10 @@
                 <% p.author_id = 1 %>
                 <% $secret_url = new_post_path  %>
                 <% end %>
-            <h6><form name="myForm" onsubmit="return validateForm()" action="<%= $secret_url %>" method="get">
-  Password: <input type="Password" name="fname">
+                <% if current_user_session %>
+  <h6><form name="myForm" onsubmit="return validateForm()" action="<%= $secret_url %>" method="get">
   <input type="submit" value="SAVE">
-  </form></h6>
+</form></h6> <% end %>
               <% end %>
 
                 <hr>

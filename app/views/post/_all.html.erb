@@ -62,12 +62,14 @@
 
               </div>
 <% end %>
+<% if current_user_session %>
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">
                       <a href="<%= new_post_path %>">New Post &rarr;</a>
                     </li>
                 </ul>
+                <% end %>
             </div>
         </div>
     </div>

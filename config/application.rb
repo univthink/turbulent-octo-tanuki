@@ -20,13 +20,12 @@ module Portfolio
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-
+  
     config.assets.precompile += %w( post-sample-image.jpg )
     config.assets.precompile += %w( post-bg.jpg )
     config.assets.precompile += %w( home-bg.jpg )
     config.assets.precompile += %w( contact-bg.jpg )
     config.assets.precompile += %w( about-bg.jpg )
-    config.assets.precompile += %w( application.js )
 
     config.assets.precompile += %w( bootstrap.min.css )
     config.assets.precompile += %w( clean-blog.css )
